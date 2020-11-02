@@ -61,7 +61,6 @@
 (defun append(x b)
     (if (car x) 
         (cons (car x) (append (cdr x) b))
-        b
     )
 )
 
@@ -109,14 +108,15 @@
     (index_helper a b 0)
 )
 (defun index_helper(a b c) 
-    (cond   ((= a (car b)) c)
-            ((null (= a (car b))) (index_helper a (cdr b) (+ 1 c)))
-            ((null (car b)) -1)
+    (cond   ((null (car b)) -1)
+            ((equal a (car b)) c)
+            ((null (equal a (car b))) (index_helper a (cdr b) (+ 1 c)))
+            
     )
 )
 
 (defun remove-all(a b)
-    (cond ()v
+    (cond ()
 
     )
 
