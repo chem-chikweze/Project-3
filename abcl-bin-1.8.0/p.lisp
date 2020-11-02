@@ -234,17 +234,21 @@
             ((and (< x 0) (> a 0)) (mod (+ a x) a))
             ((and (< x 0) (< a 0)) (-(mod (- x) (- a))))
             ((< (abs x) (abs a)) x)
-           
+    )
+)
+
+(defun prime(x)
+    (cond ((= 0 (factorsum x)) t )
     )
 )
 
 (defun factorsum(x)
-    (factorsum_helper x 1 b)
+    (factorsum_helper x 1 0)
 )
 (defun factorsum_helper(x a b)
-    (cond   ((= x a) b)
+    (cond   ((= x a) (- b x))
             ((= 0 (mod x a)) (factorsum_helper x (+ a 1) (+ b x)))
-            ((null (= 0 (mod x a))) (factorsum_helper x (+ a 1) (b)))
+            ((null (= 0 (mod x a))) (factorsum_helper x (+ a 1) b))
     )
 )
 
