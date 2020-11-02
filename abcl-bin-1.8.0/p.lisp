@@ -228,10 +228,15 @@
 )
 
 (defun mod(x a)
-    (cond )
+    (cond   ((< (abs x) (abs a)) x)
+            ((and (> x 0) (> a 0)) (mod (- x a) a))
+
+            ;; ((and (> x 0) (< a 0)) (-(mod (- (* (- 1) a) x) (-a))))
+            ;; ((and (< x 0) (> a 0)) (mod (+ x (* 5 a)) a))
+            ((and (< x 0) (< a 0)) (-(mod (- x) (- a))))
+    )
 )
 
-;; Required
 (defun factorsum(x)
     (factorsum_helper x 1 b)
 )
@@ -240,8 +245,8 @@
             ((= 0 (mod x a)) (factorsum_helper x (+ a 1) (+ b x)))
             ((null (= 0 (mod x a))) (factorsum_helper x (+ a 1) (b)))
     )
-
 )
+
 (defun p()
     (princ "Welcome to my Project.")
     (finish-output)
