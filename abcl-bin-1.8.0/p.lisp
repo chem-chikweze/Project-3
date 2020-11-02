@@ -290,7 +290,7 @@
             ((= 4 l) (cardinality_start))
     )
 )
-(defun sets() 
+(defun maths() 
     (princ "You are in Maths: Choose any of the list functions from 1 to 4: ")    
     (finish-output)
     (format t "~&~a" "1 for abs")
