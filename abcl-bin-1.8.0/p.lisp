@@ -116,10 +116,14 @@
 )
 
 (defun remove-all(a b)
-    (cond ()
+	(reverse (remove-all_helper a b NIL))
+)
 
-    )
-
+(defun remove-all_helper (a b c)
+	(cond   ((equal (car b) nil) c)
+		    ((null (equal a (car b)))   (remove-all_helper a (cdr b) (cons (car b) c)))
+		    (t  (remove-all_helper a (cdr b) c))
+	)
 )
 
 (defun p()
