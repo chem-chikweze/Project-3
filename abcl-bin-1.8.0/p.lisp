@@ -153,10 +153,13 @@
     (setq a (read))
     (deficientp a)
 )
-
-(defun append(x b)
-    (if (car x) 
-        (cons (car x) (append (cdr x) b))
+(defun append(x y)
+    (append_helper  y (reverse x))
+)
+(defun append_helper(x y)
+    (if y 
+        (append_helper (cons (car y) x) (cdr y))
+        x
     )
 )
 
