@@ -213,6 +213,10 @@
     )
 )
 
+(defun right-tri(a b c)
+    (cond   ((= (* c c) (+ (* a a) (* b b))) t))
+)
+
 (defun prime_helper(x a)
     (cond   ((= x 1) nil)
             (((< a x) and (= 0 (modulo x a))) t )
@@ -221,7 +225,12 @@
     )
 )
 (defun modulo(x a)
-    
+    (cond
+        (((> x 0) and (> a 0)) (modulo (- x a) a))
+        (((> x 0) and (< a 0)) (modulo (- x a) a))
+        (((< x 0) and (> a 0)) (modulo (- x a) a))
+        (((< x 0) and (< a 0)) (modulo (- x a) a))
+    )
 )
 
 (defun p()
@@ -295,9 +304,9 @@
     (format t "~&~a" "Please enter a number for the function you want to work on: ")
     (finish-output)
     (setq l (read))
-    (cond   ((= 1 l) (member_start))
-            ((= 2 l) (insert_start))
-            ((= 3 l) (union_start))
+    (cond   ((= 1 l) (abs_start))
+            ((= 2 l) (factorial_start))
+            ((= 3 l) (right-tri_start))
             ((= 4 l) (cardinality_start))
     )
 )
