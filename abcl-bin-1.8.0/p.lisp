@@ -148,20 +148,28 @@
 )
 
 (defun lists() 
-    (princ "You are in lists: Choose any of the list functions from 1 to 15: ")    
+    (princ "You are in lists: Choose any of the list functions from 1 to 10: ")    
     (finish-output)
     (setq l (read))
     (cond   ((= 1 l) (append_start))
             ((= 2 l) (reverse_start))
             ((= 8 l) (addtoend_start))
             ((= 9 l) (indexof_start))
-
-
     )
     ;; (princ l)
 )
 
-
+(defun sets() 
+    (princ "You are in lists: Choose any of the list functions from 1 to 4: ")    
+    (finish-output)
+    (setq l (read))
+    (cond   ((= 1 l) (member_start))
+            ((= 2 l) (insert_start))
+            ((= 8 l) (union_start))
+            ((= 9 l) (indexof_start))
+    )
+    ;; (princ l)
+)
 
 
 
