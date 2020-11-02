@@ -237,9 +237,11 @@
 (defun union(a b)
     (append a b)
 )
+
 (defun cardinality(a)
     (cardinality_helper a 0)
 )
+
 (defun cardinality_helper(a b)
     (cond   ((null (car a)) b)
             (t (cardinality_helper (cdr a) (+ b 1)))
