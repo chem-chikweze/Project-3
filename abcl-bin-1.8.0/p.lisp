@@ -209,11 +209,20 @@
 
 (defun factorial(x)
     (cond   ((= x 0) 1)
-            (> x 0) (* x (factorial (- x 1)))
+            ((> x 0) (* x (factorial (- x 1))))
     )
 )
 
-
+(defun prime_helper(x a)
+    (cond   ((= x 1) nil)
+            (((< a x) and (= 0 (modulo x a))) t )
+            (((< a x) and (null (= 0 (modulo x a)))) (prime_helper x (+ a 1)) )
+            ((= a x) nil)
+    )
+)
+(defun modulo(x a)
+    
+)
 
 (defun p()
     (princ "Welcome to my Project.")
