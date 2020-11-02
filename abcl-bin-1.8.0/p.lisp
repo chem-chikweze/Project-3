@@ -227,13 +227,20 @@
     )
 )
 
+(defun mod(x a)
+    (cond )
+)
 
 ;; Required
 (defun factorsum(x)
-    (factorsum_helper x a b)
+    (factorsum_helper x 1 b)
 )
 (defun factorsum_helper(x a b)
-    (cond )
+    (cond   ((= x a) b)
+            ((= 0 (mod x a)) (factorsum_helper x (+ a 1) (+ b x)))
+            ((null (= 0 (mod x a))) (factorsum_helper x (+ a 1) (b)))
+    )
+
 )
 (defun p()
     (princ "Welcome to my Project.")
