@@ -217,6 +217,16 @@
     (cond   ((= (* c c) (+ (* a a) (* b b))) t))
 )
 
+(defun gcd(a b)
+    (cond   ((= a b) a)
+            ;; (((< a 0) and (> b 0)) (* -1 (gcd (* -1 a) b)))
+            ;; (((> a 0) and (< b 0)) (* -1 (gcd a (* -1 b))))
+            (((< a 0) and (< b 0)) ((gcd ( (* (- 0 1) a) (* (- 0 1) b)))))
+            ((> a b) (gcd (- a b) b))
+            ((< a b) (gcd a (- b a)))
+    )
+)
+
 (defun prime_helper(x a)
     (cond   ((= x 1) nil)
             (((< a x) and (= 0 (modulo x a))) t )
@@ -311,7 +321,7 @@
     )
 )
 
-(defun maths() 
+(defun required() 
     (princ "You are in Maths: Choose any of the list functions from 1 to 4: ")    
     (finish-output)
     (format t "~&~a" "1 for abs")
@@ -331,24 +341,3 @@
             ((= 4 l) (cardinality_start))
     )
 )
-
-;; (defun AreaOfCircle()
-;; (terpri)
-;; (princ "Enter Radius: ")
-;; (setq radius (read))
-;; (setq area (* 3.1416 radius radius))
-;; (princ "Area: ")
-;; (write area))
-;; (AreaOfCircle)
-
-;; (defun project ()
-;;   (flet ((prompt (string)
-;;            (format t "~&~a: " string)
-;;            (finish-output)
-;;            (read nil 'eof nil)))
-;;     (let ((x (prompt "first number"))
-;;           (y (prompt "second number"))
-;;           (z (prompt "third number")))
-;;       (format t "~&the sum of ~a, ~a, & ~a is:~%~%~a~%"
-;;               x y z (+ x y z)))))
-
