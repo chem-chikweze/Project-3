@@ -228,12 +228,13 @@
 )
 
 (defun mod(x a)
-    (cond   ((< (abs x) (abs a)) x)
+    (cond   ((and (and (< x a) (> x 0)) (> a 0))  x)
+            ((and (> x 0) (< a 0)) (-(mod (- (* (- 1) a) x) (- a))))
             ((and (> x 0) (> a 0)) (mod (- x a) a))
-
-            ;; ((and (> x 0) (< a 0)) (-(mod (- (* (- 1) a) x) (-a))))
-            ;; ((and (< x 0) (> a 0)) (mod (+ x (* 5 a)) a))
+            ((and (< x 0) (> a 0)) (mod (+ a x) a))
             ((and (< x 0) (< a 0)) (-(mod (- x) (- a))))
+            ((< (abs x) (abs a)) x)
+           
     )
 )
 
