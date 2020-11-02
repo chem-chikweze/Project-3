@@ -201,7 +201,17 @@
 )
 
 ;; Maths
+(defun abs(x)
+    (cond ((> x 0) x)
+        (t (* -1 x))            
+    )
+)
 
+(defun factorial(x)
+    (cond   ((= x 0) 1)
+            (> x 0) (* x (factorial (- x 1)))
+    )
+)
 
 
 
@@ -240,7 +250,6 @@
             ((= 9 l) (indexof_start))
             ((= 10 l) (remove_start))
     )
-    ;; (princ l)
 )
 
 (defun sets() 
