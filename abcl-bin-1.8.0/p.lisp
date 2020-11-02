@@ -57,6 +57,17 @@
     (setq b (read))
     (indexof a b)
 )
+(defun remove_start()
+    (princ "Welcome to Remove all. ")
+    (finish-output)
+    (princ "Enter first argument: ")
+    (finish-output)
+    (setq a (read))
+    (princ "Enter second argument (a list) in parenthesis: ")
+    (finish-output)
+    (setq b (read))
+    (remove-all a b)
+)
 
 (defun append(x b)
     (if (car x) 
@@ -118,13 +129,27 @@
 (defun remove-all(a b)
 	(reverse (remove-all_helper a b NIL))
 )
-
 (defun remove-all_helper (a b c)
 	(cond   ((equal (car b) nil) c)
 		    ((null (equal a (car b)))   (remove-all_helper a (cdr b) (cons (car b) c)))
 		    (t  (remove-all_helper a (cdr b) c))
 	)
 )
+
+;;;;; SET FUNCTIONS
+(defun member(a b)
+    (if (= -1 (indexof a b)) 
+        nil
+        t
+ )
+)
+
+
+
+
+
+
+
 
 (defun p()
     (princ "Welcome to my Project.")
@@ -159,6 +184,7 @@
             ((= 2 l) (reverse_start))
             ((= 8 l) (addtoend_start))
             ((= 9 l) (indexof_start))
+            ((= 10 l) (remove_start))
     )
     ;; (princ l)
 )
