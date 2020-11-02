@@ -227,6 +227,14 @@
     )
 )
 
+
+;; Required
+(defun factorsum(x)
+    (factorsum_helper x a b)
+)
+(defun factorsum_helper(x a b)
+    (cond )
+)
 (defun p()
     (princ "Welcome to my Project.")
     (finish-output)
@@ -284,6 +292,8 @@
             ((= 4 l) (cardinality_start))
     )
 )
+
+
 (defun maths() 
     (princ "You are in Maths: Choose any of the list functions from 1 to 4: ")    
     (finish-output)
